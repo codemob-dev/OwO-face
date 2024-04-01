@@ -1,0 +1,13 @@
+#center {
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    font-size: 20vmin;
+}
+.face {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+}
