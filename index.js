@@ -34,22 +34,19 @@ document.addEventListener("DOMContentLoaded", ev => {
         var moveX = (vw / 2 - ev.clientX) / vw * 2;
         var moveY = (vh / 2 - ev.clientY) / vh * 2;
         
-        var transformO = `translate(${moveX * -3}vmin, ${moveY * -3 - .5}vmin)`;
-        var transformw = `translate(${moveX * -.5}vmin, ${moveY * -.5}vmin)`;
+        var transformO = `translate(${moveX * -3}vw, ${moveY * -3 - .5}vw)`;
+        var transformw = `translate(${moveX * -.5}vw, ${moveY * -.5}vw)`;
 
         O[0].style.transform = transformO;
         O[1].style.transform = transformO;
         w.style.transform = transformw;
 
-        if (moveX < -.5) {
-            O[1].textContent = O[1].textContent.toLowerCase();
-            O[0].textContent = O[0].textContent.toUpperCase();
-        } else if (moveX > .5) {
-            O[0].textContent = O[0].textContent.toLowerCase();
-            O[1].textContent = O[1].textContent.toUpperCase();
+        if (moveX < 0) {
+            O[0].style.transform += ` scale(100%)`;
+            O[1].style.transform += ` scale(${100 - Math.pow(moveX * 4, 2)}%)`;
         } else {
-            O[0].textContent = O[0].textContent.toUpperCase();
-            O[1].textContent = O[1].textContent.toUpperCase();
+            O[0].style.transform += ` scale(${100 - Math.pow(moveX * 4, 2)}%)`;
+            O[1].style.transform += ` scale(100%)`;
         }
     })
     
